@@ -4,21 +4,31 @@ import { useTheme } from './ThemeContext';
 import PerformanceSpecs from './PerformanceSpecs';
 import { useGSAP } from "@gsap/react";
 import  gsap  from "gsap";
-
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 const BuildSheet = () => {
   const { theme } = useTheme();
 
   useGSAP(()=>{
-  gsap.from("#photo",{
+  gsap.from("#photo" ,{
+    y:-100,
     opacity:0,
-    duration:1.5,
-    delay: 0.5,
+    scrollTrigger:{
+      trigger:"#photo",
+      end:"top 30%",
+      markers:true,
+      scrub:true
+    }
   });
   gsap.from("#text",{
-    x:-400,
-    duration:1,
-    delay: 1,
+    x:-500,
     opacity:0,
+    scrollTrigger:{
+      trigger:"#text",
+      end:"top 30%",
+      markers:true,
+      scrub:true
+    }
   });
 },[])
 

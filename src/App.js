@@ -14,6 +14,20 @@ function App() {
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [currentProfile, setCurrentProfile] = useState(null);
   const [redirectPath, setRedirectPath] = useState(null);
+useEffect(() => {
+  const saved = localStorage.getItem('selectedProfileData');
+  if (saved) {
+    try {
+      const profile = JSON.parse(saved);
+      setCurrentProfile(profile);
+      setProfileLoaded(true);
+      // optionally compute redirectPath from profile.name here
+    } catch (e) {
+      console.error('Corrupt profile data', e);
+      localStorage.removeItem('selectedProfileData');
+    }
+  }
+}, []);
 
   const handleProfileSelected = (profile) => {
     // Save selection first so a reload (if any) keeps state
@@ -22,7 +36,7 @@ function App() {
 
     setCurrentProfile(profile);
     setProfileLoaded(true);
-
+    
     // route selection using react-router (no full reload)
     if (profile.name === 'Admin') {
       setRedirectPath('/admin');
