@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { Sun, Moon } from 'lucide-react';
+
 
 const ThemeContext = createContext();
 

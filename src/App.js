@@ -15,15 +15,6 @@ function App() {
   const [currentProfile, setCurrentProfile] = useState(null);
   const [redirectPath, setRedirectPath] = useState(null);
 
-  useEffect(() => {
-    // Check if profile was previously selected
-    const savedProfileData = localStorage.getItem('selectedProfileData');
-    if (savedProfileData) {
-      setCurrentProfile(JSON.parse(savedProfileData));
-      setProfileLoaded(true);
-    }
-  }, []);
-
   const handleProfileSelected = (profile) => {
     // Save selection first so a reload (if any) keeps state
     localStorage.setItem('selectedProfileId', profile.id || '');

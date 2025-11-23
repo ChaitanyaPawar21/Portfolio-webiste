@@ -3,8 +3,7 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from 'prop-types';
 import { ChevronRight } from "lucide-react";
 import { useTheme } from "./ThemeContext";
-import { useGSAP } from "@gsap/react";
-import  gsap  from "gsap";
+
 
 const Hero = ({ setActiveSection }) => {
   const { darkMode, theme } = useTheme();

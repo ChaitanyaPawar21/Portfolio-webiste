@@ -1,6 +1,5 @@
 // src/components/BuildSheet.js
 import React from 'react';
-import { Wrench } from 'lucide-react';
 import { useTheme } from './ThemeContext';
 import PerformanceSpecs from './PerformanceSpecs';
 import { useGSAP } from "@gsap/react";
