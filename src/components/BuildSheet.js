@@ -3,9 +3,25 @@ import React from 'react';
 import { Wrench } from 'lucide-react';
 import { useTheme } from './ThemeContext';
 import PerformanceSpecs from './PerformanceSpecs';
+import { useGSAP } from "@gsap/react";
+import  gsap  from "gsap";
 
 const BuildSheet = () => {
   const { theme } = useTheme();
+
+  useGSAP(()=>{
+  gsap.from("#photo",{
+    opacity:0,
+    duration:1.5,
+    delay: 0.5,
+  });
+  gsap.from("#text",{
+    x:-400,
+    duration:1,
+    delay: 1,
+    opacity:0,
+  });
+},[])
 
   return (
     <section className={`${theme.bgSecondary} py-20 px-4`}>
@@ -18,16 +34,16 @@ const BuildSheet = () => {
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>
             <div
-              className={`${theme.bgTertiary} ${theme.border} border h-80 mb-6 flex items-center justify-center`}
+              //className={`${theme.bgTertiary} ${theme.border} border h-80 mb-6 flex items-center justify-center`}
             >
               <div className="text-center">
             
-                <div className={`${theme.textTertiary} mt-4`}><img src="/assets/bikes/myself.jpg" alt="Motorcycle"/></div>
+                <div id="photo" className={`${theme.textTertiary} mt-4`}><img src="/assets/bikes/myself.jpg" alt="Motorcycle"/></div>
               </div>
               
             </div>
           </div>
-          <div className="flex flex-col justify-center">
+          <div id="text" className="flex flex-col justify-center">
             <p className={`text-lg ${theme.textSecondary} leading-relaxed mb-6`}>
               I'm <span className={`${theme.accent} font-semibold`}>Chaitanya Pawar</span> also known as <span className={`${theme.accent} font-semibold`}>calm_aadmi</span>, a
               full-stack developer who approaches every project like a custom build—understanding
@@ -47,5 +63,7 @@ const BuildSheet = () => {
     </section>
   );
 };
+
+
 
 export default BuildSheet;

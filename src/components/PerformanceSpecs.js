@@ -42,7 +42,7 @@ const PerformanceSpecs = () => {
   return (
     <div className={`${theme.border} border-t pt-12`}>
       <h3 className={`text-2xl font-bold mb-8 ${theme.accent}`}>
-        PERFORMANCE SPECIFICATIONS (If bar is less than 50% = skill is still in achieving mode)
+        PERFORMANCE SPECIFICATIONS 
       </h3>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {skills.map((skill) => (
@@ -92,10 +92,14 @@ const PerformanceSpecs = () => {
                 ))}
               </ul>
             </div>
+            
           </button>
         ))}
       </div>
+      <br></br>
+      (If bar is less than 50% = skill is still in achieving mode)
     </div>
+    
   );
 };
 
