@@ -37,7 +37,7 @@ function App() {
       setRedirectPath('/admin');
     } else if (profile.name === 'Recruiter') {
       setRedirectPath('/recruiter');
-    } else if (profile.name === 'Stalker33') {
+    } else if (profile.name === 'Stalker') {
       setRedirectPath('/stalker');
     } else {
       setRedirectPath('/'); // default home
@@ -115,7 +115,7 @@ function App() {
             <Route path="/data-structures" element={<DataStructuresPage />} />
             <Route path="/admin" element={<MotorcyclePortfolio profile={currentProfile} />} />
             <Route path="/recruiter" element={<MotorcyclePortfolio profile={currentProfile} />} />
-            <Route path="/stalker33" element={<MotorcyclePortfolio profile={currentProfile} />} />
+            <Route path="/stalker" element={<MotorcyclePortfolio profile={currentProfile} />} />
             {/* fallback: in case user visits unknown route */}
             <Route path="*" element={<MotorcyclePortfolio profile={currentProfile} />} />
           </Routes>
