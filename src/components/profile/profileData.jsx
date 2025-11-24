@@ -2,7 +2,7 @@
 export const DEFAULT_PROFILES = [
   {
     id: 'profile-1',
-    name: 'Admin',
+    name: 'admin',
     avatarUrl: '/assets/profile/admin.png', // Use your existing photo
     colorScheme: '#fa7522ff', // Orange to match your portfolio
     role: 'Controller'

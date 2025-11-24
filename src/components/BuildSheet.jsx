@@ -11,21 +11,32 @@ const BuildSheet = () => {
 
   useGSAP(()=>{
   gsap.from("#photo" ,{
-    y:-100,
-    opacity:0,
+    x:20,
+    opacity:-1,
     scrollTrigger:{
       trigger:"#photo",
-      end:"top 30%",
+      end:"top 10%",
       markers:true,
       scrub:true
     }
   });
   gsap.from("#text",{
-    x:-500,
-    opacity:0,
+    x:-300,
+    opacity:-1,
+    scrollTrigger:{
+      trigger:"#photo",
+      end :"top 30%",
+      markers:true,
+      scrub:true,
+      stagger:1
+    }
+  });
+  gsap.from("#Utext",{
+    y:300,
+    opacity:-1,
     scrollTrigger:{
       trigger:"#text",
-      end:"top 30%",
+      end :"top 30%",
       markers:true,
       scrub:true
     }
@@ -35,10 +46,10 @@ const BuildSheet = () => {
   return (
     <section className={`${theme.bgSecondary} py-20 px-4`}>
       <div className="max-w-6xl mx-auto">
-        <div className={`mb-4 ${theme.accent} text-sm tracking-widest font-semibold`}>
+        <div id="Utext"className={`mb-4 ${theme.accent} text-sm tracking-widest font-semibold`}>
           Introduction
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold mb-12">WHO'S IN THE GARAGE</h2>
+        <h2 id="Utext"className="text-4xl md:text-5xl font-bold mb-12">WHO'S IN THE GARAGE</h2>
 
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>

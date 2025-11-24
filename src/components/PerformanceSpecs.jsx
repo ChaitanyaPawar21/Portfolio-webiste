@@ -40,7 +40,7 @@ const PerformanceSpecs = () => {
   ];
 
   return (
-    <div className={`${theme.border} border-t pt-12`}>
+    <div class='bg-red-200 h-full w-full' className={`${theme.border} border-t pt-12`}>
       <h3 className={`text-2xl font-bold mb-8 ${theme.accent}`}>
         PERFORMANCE SPECIFICATIONS 
       </h3>

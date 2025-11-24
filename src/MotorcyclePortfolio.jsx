@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import BuildSheet from "./components/BuildSheet";
 import ProjectShowcase from "./components/ProjectShowcase";
 import { useTheme } from "./components/ThemeContext";
+import BikeGsap from "./components/bikeGsap"; 
 
 /**
  * SmoothRPMMeter + fade-out + optional engine sound
@@ -223,6 +224,7 @@ const MotorcyclePortfolioInner = ({ initialSection = null, introMode = "auto" })
         <main>
           <Hero setActiveSection={setActiveSection} />
           <BuildSheet />
+          <BikeGsap />
           <ProjectShowcase />
         </main>
 
