@@ -1,0 +1,58 @@
+/* bikeGsap.css - paste/overwrite file in src/components/BikeSkills/ */
+
+/* SECTION wrapper that GSAP pins */
+.bike-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;       /* full viewport height - adjust if you want larger section */
+  overflow: hidden;
+  background: #000;    /* black stage behind everything */
+}
+
+/* The overlay that contains the window (this is above the bike) */
+.overlay-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;  /* window is decorative, doesn't catch mouse */
+  z-index: 30;           /* on top of bike */
+}
+
+/* The "window frame" - big border creates a transparent center */
+.window-frame {
+  width: 80%;
+  height: 70%;
+  /* create transparent center by using a thick border */
+  border-style: solid;
+  border-color: #000;
+  border-width: 200px;     /* initial frame thickness */
+  border-radius: 50%;      /* start rounded, will be animated to 15% to form TV */
+  background: rgba(0,0,0,0); /* transparent center */
+  box-sizing: content-box; /* ensure border does not reduce inner transparent area */
+  z-index: 31;
+  transform-origin: center center;
+  /* enable GPU for smoother transform/scale animations */
+  will-change: transform, border-radius, border-width;
+}
+
+/* Bike image - positioned so center of bike can land at center of window.
+   We use left:50% + translateX(-50%) to place the image's center at the container center,
+   then GSAP x transforms move it in/out relative to that center. */
+.bike-img {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;            /* adjust vertical placement to taste */
+  transform: translateX(-50%); /* center horizontally by default */
+  z-index: 10;            /* below overlay (.overlay-center z-index:30) so it shows through window */
+  max-width: none;        /* prevent scaling constraints */
+  width: auto;
+  height: 70vh;           /* tune bike size - smaller or bigger as you like */
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Make sure the image doesn't get constrained by other global rules:
+   you already have #bike in index.css, but absolute/left/top etc here are more specific.
+   If another rule still overrides, add !important to position/ z-index (last resort). */
