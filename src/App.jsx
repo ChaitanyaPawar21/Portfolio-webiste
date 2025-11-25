@@ -43,10 +43,10 @@ function App() {
       if (location.pathname === '/') {
         if (profile.name === 'admin') { // Changed to lowercase to match normalization
           navigate('/admin', { replace: true }); // Changed to lowercase for consistency
-        } else if (profile.name === 'recruiter') {
+        } else if (profile.name == 'recruiter') {
           navigate('/recruiter', { replace: true });
         } else {
-          navigate('/stalker', { replace: true });
+          navigate('portfolio', { replace: true });
         }
       }
     } catch (e) {
@@ -77,10 +77,10 @@ function App() {
     // Navigate to role-specific landing page
     if (profile.name === 'admin') { // Changed to lowercase
       navigate('/admin', { replace: true }); // Changed to lowercase
-    } else if (profile.name === 'recruiter') {
+    } else if (profile.name == 'recruiter') {
       navigate('/recruiter', { replace: true });
     } else {
-      navigate('/stalker', { replace: true });
+      navigate('/portfolio', { replace: true });
     }
   };
 
@@ -112,9 +112,8 @@ function App() {
       )}
 
       <Routes>
-        <Route path="/" element={<ProfileSelector onProfileSelected={handleProfileSelected} />} />
         <Route path="/profile" element={<ProfileSelector onProfileSelected={handleProfileSelected} />} />
-
+<Route path="/" element={<ProfileSelector onProfileSelected={handleProfileSelected} />} />
         {/* Certification routes */}
         <Route path="/frontend-fairing" element={<FrontendFairingPage />} />
         <Route path="/backend-engine" element={<BackendEnginePage />} />
@@ -123,8 +122,8 @@ function App() {
 
         {/* Role-specific routes */}
         <Route path="/admin" element={<AdminTerminal onOpenFile={handleOpenFile} onOpenSection={handleOpenSection} />} />
-        <Route path="/recruiter" element={<MotorcyclePortfolio profile={currentProfile} />} />
-        <Route path="/stalker" element={<MotorcyclePortfolio profile={currentProfile} />} />
+        
+        <Route path="/portfolio" element={<MotorcyclePortfolio profile={currentProfile} />} />
       </Routes>
     </ThemeProvider>
   );

@@ -11,7 +11,7 @@ const BuildSheet = () => {
 
   useGSAP(()=>{
   gsap.from("#photo" ,{
-    x:20,
+    x:200,
     opacity:-1,
     scrollTrigger:{
       trigger:"#photo",
